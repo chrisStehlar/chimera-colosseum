@@ -10,6 +10,7 @@ public class Monster : MonoBehaviour
 
     private float speed = 0;
     private float damage = 0;
+    public float health = 100f;
 
     // MONO
 
@@ -17,7 +18,8 @@ public class Monster : MonoBehaviour
     void Start()
     {
         corePart = GetComponentInChildren<Core>();
-        UpdateStats();
+        if(corePart.transform.childCount > 0)
+            UpdateStats();
     }
 
     // Update is called once per frame
