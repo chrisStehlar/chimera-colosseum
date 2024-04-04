@@ -6,7 +6,7 @@ public class Core : Part
 {
     // FIELDS
 
-    // places we look to place the appendages
+    // offsets we look at to place the appendages procedurally
     public Vector3[] headJoints;
     public Vector3[] armJoints;
     public Vector3[] legJoints;
