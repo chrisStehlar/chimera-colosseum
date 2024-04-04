@@ -331,6 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79a3400a556e4a4d93aa8b94f003649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Hp: 0
 --- !u!4 &651758931
 Transform:
   m_ObjectHideFlags: 0
@@ -355,6 +356,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1046435364}
+  - component: {fileID: 1046435365}
   m_Layer: 5
   m_Name: Player One HP Bar
   m_TagString: Untagged
@@ -381,9 +383,24 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -440.77362, y: 306}
+  m_AnchoredPosition: {x: -313, y: 250}
   m_SizeDelta: {x: 500, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1046435365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046435363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d04c34e5230b33940b88cef3f3cc0f54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 100
+  currentHp: 100
+  hpBar: {fileID: 1868671592}
 --- !u!1 &1252003517
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,6 +708,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1822496306}
+  - component: {fileID: 1822496307}
   m_Layer: 5
   m_Name: Player Two HP Bar
   m_TagString: Untagged
@@ -717,9 +735,24 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 433, y: 306}
+  m_AnchoredPosition: {x: 311, y: 250}
   m_SizeDelta: {x: 500, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1822496307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822496305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d04c34e5230b33940b88cef3f3cc0f54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 100
+  currentHp: 100
+  hpBar: {fileID: 1334724193}
 --- !u!1 &1868671590
 GameObject:
   m_ObjectHideFlags: 0
