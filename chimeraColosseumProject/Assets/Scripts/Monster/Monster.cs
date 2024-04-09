@@ -19,7 +19,7 @@ public class Monster : MonoBehaviour
     {
         corePart = GetComponentInChildren<Core>();
         if(corePart.transform.childCount > 0)
-            UpdateStats();
+            SetStats();
     }
 
     // Update is called once per frame
@@ -32,14 +32,14 @@ public class Monster : MonoBehaviour
 
     // METHODS
 
-    public void UpdateStats()
+    public void SetStats()
     {
-        UpdateSpeed();
-        UpdateDamage();
+        SetSpeed();
+        SetDamage();
     }
 
     // loop through all parts and collate their total speed
-    private void UpdateSpeed()
+    private void SetSpeed()
     {
         speed = 0;
 
@@ -51,7 +51,7 @@ public class Monster : MonoBehaviour
     }
 
     // loop through all parts and collate their total damage
-    private void UpdateDamage()
+    private void SetDamage()
     {
         damage = 0;
 
