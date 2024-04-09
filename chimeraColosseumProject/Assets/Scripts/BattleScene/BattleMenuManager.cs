@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class BattleMenuManager : MonoBehaviour
 {
+    [SerializeField]
+    private float Hp;
+
+
     // Start is called before the first frame update
     void Start()
     {
