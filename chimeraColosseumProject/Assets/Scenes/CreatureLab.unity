@@ -2386,7 +2386,7 @@ GameObject:
   - component: {fileID: 1826090725}
   m_Layer: 5
   m_Name: Legs
-  m_TagString: Arm
+  m_TagString: Leg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
