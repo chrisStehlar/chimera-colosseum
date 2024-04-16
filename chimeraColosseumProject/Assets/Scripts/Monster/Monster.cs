@@ -12,6 +12,12 @@ public class Monster : MonoBehaviour
     private float damage = 0;
     public float health = 100f;
 
+    public GameObject Head;
+    public GameObject leftHand;
+    public GameObject rightHand;
+    public GameObject leftLeg;
+    public GameObject rightLeg;
+    public GameObject core;
     // MONO
 
     // Start is called before the first frame update
