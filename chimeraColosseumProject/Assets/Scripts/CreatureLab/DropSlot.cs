@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class DropSlot : MonoBehaviour, IDropHandler
 {
-    private Image slotImage; 
-
+    private Image slotImage;
+    public string slotType;
     void Start()
     {
         // Get the Image component of the slot
@@ -17,7 +17,7 @@ public class DropSlot : MonoBehaviour, IDropHandler
         if (eventData.pointerDrag != null) // Check if there is an object being dragged
         {
             Image draggedImage = eventData.pointerDrag.GetComponent<Image>();
-            if (draggedImage != null)
+            if (draggedImage != null && draggedImage.gameObject.tag == this.gameObject.tag)
             {
                 // Set the slot's image to the dragged image
                 slotImage.sprite = draggedImage.sprite;
