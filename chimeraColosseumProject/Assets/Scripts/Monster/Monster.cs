@@ -67,4 +67,20 @@ public class Monster : MonoBehaviour
             damage += part.damage;
         }
     }
+
+
+    public float getDamage()
+    {
+        return damage;
+    }
+
+    public float getSpeed()
+    {
+        return speed;
+    }
+
+    public float getHP()
+    {
+        return health;
+    }
 }

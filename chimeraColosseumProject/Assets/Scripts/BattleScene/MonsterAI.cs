@@ -4,10 +4,42 @@ using UnityEngine;
 
 public class MonsterAI : MonoBehaviour
 {
+    // Grab the monster script off this object to be able to get the stats from it 
+    [SerializeField]
+    private Monster thisMonster;
+    [SerializeField]
+    private Monster targetMonster;
+    [SerializeField]
+    private Transform targetTransform;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        // The below code assumes that the monster objects will exist in the scene 
+
+        // Get the initial monster information 
+        thisMonster = this.GetComponent<Monster>();
+
+        // Look for the other object in the scene with a monster script 
+        var monsters = Resources.FindObjectsOfTypeAll<Monster>();
+
+        var objects = Resources.FindObjectsOfTypeAll<GameObject>();
+
+        foreach(GameObject o in objects)
+        {
+            if(o.GetComponent<Monster>() != null)
+            {
+                // Means that you've found a monster, check if it is the current one
+                // If it isn't you have the object you need
+                if(o.GetComponent<Monster>() != thisMonster)
+                {
+                    targetMonster = o.GetComponent<Monster>();
+                    targetTransform = o.transform;
+                }
+            }
+        }
     }
 
     // Update is called once per frame
@@ -18,7 +50,7 @@ public class MonsterAI : MonoBehaviour
 
     /**
      * What I need to do for this
-     * 1. Determine the monster initial information about the current monster 
+     * 1. Determine the monster initial information about the current monster, gotten from Monster.cs
      * 2. Make the monsters check for other monsters in the scene.
      *      Best bet is basing it on checking for GameObjects in the scene that have a monster.cs script component 
      *      That script has a sum of the monster stats, just grab those components.
