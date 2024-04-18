@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 1163646449483129398}
   - component: {fileID: 5183138526100122959}
   - component: {fileID: 4119076238680649185}
+  - component: {fileID: -5615331806779897678}
+  - component: {fileID: -8918064734736523836}
+  - component: {fileID: 7638384776284669845}
   m_Layer: 5
   m_Name: Arm_Skeleton
   m_TagString: Arm
@@ -102,3 +105,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58fc422784a15ec4986c1b0a892ed34d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5615331806779897678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4463732220817148806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa551e672b87d947965a4708125cc8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  damage: 1
+--- !u!114 &-8918064734736523836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4463732220817148806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de345a7e45235ba4d9d253da71faae45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7638384776284669845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4463732220817148806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c975068bbb1bc439d92057e40a30fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  part: {fileID: 8441114221124032300, guid: ad1f801fc9b2a6e4a9e8e8da83f641b1, type: 3}

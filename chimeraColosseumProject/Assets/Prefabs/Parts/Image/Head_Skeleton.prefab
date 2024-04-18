@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 7158607725407103563}
   - component: {fileID: 2653889468536833895}
   - component: {fileID: 4518726728897112302}
+  - component: {fileID: -6722671372373695778}
+  - component: {fileID: 141800138135663961}
+  - component: {fileID: 6152788510286082651}
   m_Layer: 5
   m_Name: Head_Skeleton
   m_TagString: Head
@@ -102,3 +105,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58fc422784a15ec4986c1b0a892ed34d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6722671372373695778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7108656491897962496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa551e672b87d947965a4708125cc8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  damage: 2
+--- !u!114 &141800138135663961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7108656491897962496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de345a7e45235ba4d9d253da71faae45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6152788510286082651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7108656491897962496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c975068bbb1bc439d92057e40a30fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  part: {fileID: 8172511204056879978, guid: 67a4f24c3d5892141981c2a62f3a19ba, type: 3}
