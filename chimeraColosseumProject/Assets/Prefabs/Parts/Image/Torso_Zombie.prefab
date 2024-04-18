@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 3691897773389211033}
   - component: {fileID: 2301695869252748104}
   - component: {fileID: 989555087105535337}
+  - component: {fileID: 6691309391591670658}
+  - component: {fileID: 8577717699595621408}
+  - component: {fileID: 5678197501023983060}
   m_Layer: 5
   m_Name: Torso_Zombie
   m_TagString: Torso
@@ -102,3 +105,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58fc422784a15ec4986c1b0a892ed34d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6691309391591670658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2818111729647801683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f564fae49bf5764a925ea891acab91f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  damage: 1
+  headJoints: []
+  armJoints: []
+  legJoints: []
+--- !u!114 &8577717699595621408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2818111729647801683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de345a7e45235ba4d9d253da71faae45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5678197501023983060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2818111729647801683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c975068bbb1bc439d92057e40a30fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  part: {fileID: 8417863888733090835, guid: fbe678cf7877b9e458312b842bf22692, type: 3}

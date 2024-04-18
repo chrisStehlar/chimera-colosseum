@@ -12,6 +12,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         originalParent = transform.parent;
         transform.SetParent(transform.root);  // Move to the top of UI hierarchy to be rendered on top
         GetComponent<CanvasGroup>().blocksRaycasts = false;
+
     }
 
     public void OnDrag(PointerEventData eventData)

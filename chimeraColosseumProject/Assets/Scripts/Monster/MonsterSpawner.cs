@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using Unity.Burst.Intrinsics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -83,4 +84,22 @@ public class MonsterSpawner : MonoBehaviour
         monster.AddComponent<MonsterAI>();
     }
 
+    public void SetCore(Part core) {
+        allCores = new Part[] { core };
+    }
+
+    public void SetHead(Part head)
+    {
+        allHeads = new Part[] { head };
+    }
+
+    public void SetArm(Part arm)
+    {
+        allArms = new Part[] { arm };
+    }
+
+    public void SetLeg(Part leg)
+    {
+        allLegs = new Part[] { leg };
+    }
 }
