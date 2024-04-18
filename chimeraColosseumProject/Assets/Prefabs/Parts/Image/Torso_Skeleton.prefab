@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 8226244212782482571}
   - component: {fileID: 33194040368976598}
   - component: {fileID: 792192878778968828}
+  - component: {fileID: -4955358104429177216}
+  - component: {fileID: 2101495670760498299}
+  - component: {fileID: -8494431350539770441}
   m_Layer: 5
   m_Name: Torso_Skeleton
   m_TagString: Torso
@@ -102,3 +105,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58fc422784a15ec4986c1b0a892ed34d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4955358104429177216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8217312686922082048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f564fae49bf5764a925ea891acab91f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  damage: 1
+  headJoints: []
+  armJoints: []
+  legJoints: []
+--- !u!114 &2101495670760498299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8217312686922082048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de345a7e45235ba4d9d253da71faae45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8494431350539770441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8217312686922082048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c975068bbb1bc439d92057e40a30fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  part: {fileID: 3799558491816368408, guid: 2d46a6eeda86838459efb0a2c4d85e1d, type: 3}
