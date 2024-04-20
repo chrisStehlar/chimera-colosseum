@@ -33,7 +33,7 @@ public class Monster : MonoBehaviour
     {
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 moveDir = worldPosition - this.transform.position ;
-        this.transform.Translate(moveDir.normalized * speed * Time.deltaTime);
+        //this.transform.Translate(moveDir.normalized * speed * Time.deltaTime);
     }
 
     // METHODS

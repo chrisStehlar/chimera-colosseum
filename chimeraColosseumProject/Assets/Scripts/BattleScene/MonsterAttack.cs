@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class MonsterAttack : MonoBehaviour
 {
-    [SerializeField]
-    float attackRange;
-    [SerializeField]
-    float cooldownBase;
-    float currentCooldownTimer;
+    float attackRange = 1.5f;
+    float cooldownBase = 1;
+    float currentCooldownTimer = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentCooldownTimer = cooldownBase;
+        
     }
 
     // Update is called once per frame

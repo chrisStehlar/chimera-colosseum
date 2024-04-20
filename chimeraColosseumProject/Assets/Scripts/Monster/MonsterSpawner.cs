@@ -24,6 +24,12 @@ public class MonsterSpawner : MonoBehaviour
 
     // MONO
 
+    private void Start()
+    {
+        SpawnRandomMonster(new Vector2(3, 2));
+        SpawnRandomMonster(new Vector2(7, 1));
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -46,6 +52,9 @@ public class MonsterSpawner : MonoBehaviour
         GameObject monster = new GameObject("Monster");
         monster.transform.position = where;
         monster.AddComponent<Monster>();
+        monster.AddComponent<MonsterAI>();
+        monster.AddComponent<MonsterMove>();
+        monster.AddComponent<MonsterAttack>();
 
         // instantiate the core
         Core randomCore = (Core)allCores[UnityEngine.Random.Range(0, allCores.Length)];

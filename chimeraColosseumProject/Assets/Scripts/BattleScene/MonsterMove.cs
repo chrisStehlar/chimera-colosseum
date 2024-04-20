@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class MonsterMove : MonoBehaviour
 {
-    [SerializeField]
-    float knockbackScaler;
+    float knockbackScaler = 2.5f;
 
     Vector3 direction;
 
@@ -29,9 +28,8 @@ public class MonsterMove : MonoBehaviour
     public void Move(Transform target, float speed)
     {
         Vector3 direction = target.position - this.GetComponent<Transform>().position;
-        direction.Normalize();
 
-        this.GetComponent<Transform>().position += direction * speed;
+        this.GetComponent<Transform>().Translate(direction.normalized * speed * Time.deltaTime);
     }
 
     /// <summary>
@@ -40,6 +38,7 @@ public class MonsterMove : MonoBehaviour
     /// <param name="damage">The damage it is taking</param>
     public void Knockback(float damage)
     {
-        this.GetComponent<Transform>().position += -direction * damage * knockbackScaler
+        this.GetComponent<Transform>().Translate(-1 * direction.normalized * damage * knockbackScaler);
+        print("knocked back");
     }
 }
