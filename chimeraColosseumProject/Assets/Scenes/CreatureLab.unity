@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0000058814944}
+  m_AnchoredPosition: {x: 0, y: 3.1425607}
   m_SizeDelta: {x: 0, y: 636.14}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &70736762
@@ -303,7 +303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bc626d8ffc476249aed2ae740c6e7d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statsUIManager: {fileID: 0}
+  statsUIManager: {fileID: 146533511}
+  MonsterSpawner: {fileID: 1973271816}
 --- !u!1 &146533507
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,8 +344,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 493, y: 22.921997}
-  m_SizeDelta: {x: -1459.728, y: 650}
+  m_AnchoredPosition: {x: 537, y: 22.922}
+  m_SizeDelta: {x: -1148.5234, y: 650}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &146533509
 MonoBehaviour:
@@ -1170,8 +1171,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 532477522}
   m_HandleRect: {fileID: 532477521}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.99506396
+  m_Value: -0.00079695217
+  m_Size: 0.9949203
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1384,7 +1385,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.504, y: 154}
+  m_AnchoredPosition: {x: 1.9017, y: 153}
   m_SizeDelta: {x: 443.28, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1208950697
@@ -2265,7 +2266,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 129.41797, y: 142}
+  m_AnchoredPosition: {x: 147, y: 142}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1523975726
@@ -2628,7 +2629,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 129.41797, y: -181}
+  m_AnchoredPosition: {x: 160, y: -181}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1826090725
@@ -2921,7 +2922,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1973271817}
   - component: {fileID: 1973271816}
-  - component: {fileID: 1973271818}
   m_Layer: 0
   m_Name: MonsterSpawnPoint
   m_TagString: Untagged
@@ -2941,11 +2941,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 699da39e6ba14d049a45461a70453e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnCooldown: 0
-  allCores: []
-  allHeads: []
-  allArms: []
-  allLegs: []
+  spawnCooldown: 1
+  allCores:
+  - {fileID: 3799558491816368408, guid: 2d46a6eeda86838459efb0a2c4d85e1d, type: 3}
+  allHeads:
+  - {fileID: 8172511204056879978, guid: 67a4f24c3d5892141981c2a62f3a19ba, type: 3}
+  allArms:
+  - {fileID: 8441114221124032300, guid: ad1f801fc9b2a6e4a9e8e8da83f641b1, type: 3}
+  allLegs:
+  - {fileID: 859719032221544634, guid: 69434e247e9d9c54bbad1b1fe1006aa3, type: 3}
 --- !u!4 &1973271817
 Transform:
   m_ObjectHideFlags: 0
@@ -2954,25 +2958,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1973271815}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 959, y: 550, z: 0}
+  m_LocalPosition: {x: 816, y: 402, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1973271818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1973271815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb6e7edcd3582b41a66f8f3f267cd4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1979165968
 GameObject:
   m_ObjectHideFlags: 0

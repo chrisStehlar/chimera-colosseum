@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: -85688965007745025}
   - component: {fileID: 435284300902218030}
   - component: {fileID: 7925652293135938141}
-  - component: {fileID: -4108936673861994228}
   m_Layer: 5
   m_Name: Leg_Skeleton
   m_TagString: Leg
@@ -37,7 +36,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -144,17 +143,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6c975068bbb1bc439d92057e40a30fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  part: {fileID: 859719032221544634, guid: 69434e247e9d9c54bbad1b1fe1006aa3, type: 3}
---- !u!114 &-4108936673861994228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7168240298598806005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6c975068bbb1bc439d92057e40a30fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  part: {fileID: 0}
+  part: {fileID: 8043824630260161645, guid: 69434e247e9d9c54bbad1b1fe1006aa3, type: 3}

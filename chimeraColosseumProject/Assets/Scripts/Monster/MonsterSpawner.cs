@@ -77,6 +77,52 @@ public class MonsterSpawner : MonoBehaviour
         }
     }
 
+    public void SpawnLabMonster() {
+        if (GameObject.FindWithTag("Monster") != null) { 
+            Destroy(GameObject.FindWithTag("Monster"));
+        }
+        // make the empty monster game object
+        GameObject monster = new GameObject("Monster");
+        monster.tag = "Monster";
+        monster.transform.position = new Vector3(0,0,0);
+        monster.AddComponent<Monster>();
+
+        // instantiate the core
+        Core randomCore = (Core)allCores[Random.Range(0, allCores.Length)];
+        GameObject coreObj = Instantiate(randomCore.GetComponent<PartHandler>().part, monster.transform);
+
+        // instantiate body parts and put them in the right spot
+        Core core = randomCore.GetComponent<PartHandler>().part.GetComponent<Core>();
+        // head
+        for (int i = 0; i < core.headJoints.Length; i++)
+        {
+            // make a head
+            Part head = allHeads[Random.Range(0, allHeads.Length)];
+            // position it
+            Instantiate(head.GetComponent<PartHandler>().part, coreObj.transform.position + core.headJoints[i], Quaternion.identity, coreObj.transform);
+        }
+
+        // legs
+        for (int i = 0; i < core.legJoints.Length; i++)
+        {
+            // make a leg
+            Part leg = allLegs[Random.Range(0, allLegs.Length)];
+            // position it
+            Instantiate(leg.GetComponent<PartHandler>().part, coreObj.transform.position + core.legJoints[i], Quaternion.identity, coreObj.transform);
+        }
+
+        // arms
+        for (int i = 0; i < core.armJoints.Length; i++)
+        {
+            // make an arm
+            Part arm = allArms[Random.Range(0, allArms.Length)];
+            // position it
+            Instantiate(arm.GetComponent<PartHandler>().part, coreObj.transform.position + core.armJoints[i], Quaternion.identity, coreObj.transform);
+        }
+
+        monster.transform.localScale = new Vector3(10, 10, 1);
+    }
+
     public void SetCore(Part core) {
         allCores = new Part[] { core };
     }

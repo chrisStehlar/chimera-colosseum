@@ -25,8 +25,27 @@ public class DropSlot : MonoBehaviour, IDropHandler
                 slotImage.material = draggedImage.material;
                 slotImage.type = draggedImage.type;
 
-                // Optionally, snap the dragged object to the slot's position
+                //snap the dragged object to the slot's position
                 eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+
+                //update the part on the monster
+                switch (draggedImage.gameObject.tag) {
+                    case "Arm":
+                        LabUIManager.Instance.MonsterSpawner.SetArm(eventData.pointerDrag.GetComponent<Part>());
+                        break;
+                    case "Leg":
+                        LabUIManager.Instance.MonsterSpawner.SetLeg(eventData.pointerDrag.GetComponent<Part>());
+                        break;
+                    case "Torso":
+                        LabUIManager.Instance.MonsterSpawner.SetCore(eventData.pointerDrag.GetComponent<Core>());
+                        break;
+                    case "Head":
+                        LabUIManager.Instance.MonsterSpawner.SetHead(eventData.pointerDrag.GetComponent<Part>());
+                        break;
+                }
+                LabUIManager.Instance.MonsterSpawner.SpawnLabMonster();
+
+
             }
         }
     }
