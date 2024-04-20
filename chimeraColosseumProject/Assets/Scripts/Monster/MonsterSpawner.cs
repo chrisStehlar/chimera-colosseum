@@ -26,8 +26,8 @@ public class MonsterSpawner : MonoBehaviour
 
     private void Start()
     {
-        SpawnRandomMonster(new Vector2(3, 2));
-        SpawnRandomMonster(new Vector2(7, 1));
+        SpawnRandomMonster(new Vector2(-3, 2));
+        SpawnRandomMonster(new Vector2(3, 1));
     }
 
     // Update is called once per frame

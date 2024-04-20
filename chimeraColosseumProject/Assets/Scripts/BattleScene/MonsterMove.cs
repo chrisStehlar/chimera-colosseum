@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class MonsterMove : MonoBehaviour
 {
-    float knockbackScaler = 2.5f;
+    float knockbackScaler = 20f;
 
-    Vector3 direction;
+    Vector2 direction;
+    Vector2 knockbackVelocity;
+    float friction = 0.975f;
 
     // Start is called before the first frame update
     void Start()
@@ -27,9 +29,17 @@ public class MonsterMove : MonoBehaviour
     /// <param name="speed">This monster's speed stat</param>
     public void Move(Transform target, float speed)
     {
-        Vector3 direction = target.position - this.GetComponent<Transform>().position;
+        direction = target.position - this.GetComponent<Transform>().position;
 
-        this.GetComponent<Transform>().Translate(direction.normalized * speed * Time.deltaTime);
+        if (knockbackVelocity.magnitude <= 0.1f)
+        {
+            this.GetComponent<Transform>().Translate(direction.normalized * speed * Time.deltaTime);
+        }
+        else
+        {
+            this.GetComponent<Transform>().Translate(knockbackVelocity * Time.deltaTime);
+        }
+        knockbackVelocity *= friction;
     }
 
     /// <summary>
@@ -38,7 +48,6 @@ public class MonsterMove : MonoBehaviour
     /// <param name="damage">The damage it is taking</param>
     public void Knockback(float damage)
     {
-        this.GetComponent<Transform>().Translate(-1 * direction.normalized * damage * knockbackScaler);
-        print("knocked back");
+       knockbackVelocity = (-1 * direction.normalized * damage * knockbackScaler);
     }
 }

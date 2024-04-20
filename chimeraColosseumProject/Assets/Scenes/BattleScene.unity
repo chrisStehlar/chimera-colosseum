@@ -362,8 +362,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 699da39e6ba14d049a45461a70453e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnCooldown: 10
-  spawnContinuously: 1
+  spawnCooldown: 0.5
+  spawnContinuously: 0
   allCores:
   - {fileID: 8417863888733090835, guid: fbe678cf7877b9e458312b842bf22692, type: 3}
   allHeads:
