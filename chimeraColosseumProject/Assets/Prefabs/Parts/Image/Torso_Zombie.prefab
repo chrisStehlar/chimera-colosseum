@@ -36,7 +36,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -119,9 +119,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   damage: 1
-  headJoints: []
-  armJoints: []
-  legJoints: []
+  headJoints:
+  - {x: 0, y: 0, z: 0}
+  armJoints:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  legJoints:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
 --- !u!114 &8577717699595621408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,4 +151,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6c975068bbb1bc439d92057e40a30fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  part: {fileID: 8417863888733090835, guid: fbe678cf7877b9e458312b842bf22692, type: 3}
+  part: {fileID: 2981561165647503877, guid: fbe678cf7877b9e458312b842bf22692, type: 3}
