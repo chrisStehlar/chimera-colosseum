@@ -4,6 +4,7 @@ using System.Threading;
 using Unity.Burst.Intrinsics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class MonsterSpawner : MonoBehaviour
 {
@@ -123,7 +124,8 @@ public class MonsterSpawner : MonoBehaviour
         monster.transform.localScale = new Vector3(10, 10, 1);
     }
 
-    public void SetCore(Part core) {
+    public void SetCore(Part core) 
+    {
         allCores = new Part[] { core };
     }
 
