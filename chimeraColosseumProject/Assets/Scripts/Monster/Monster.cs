@@ -83,4 +83,13 @@ public class Monster : MonoBehaviour
     {
         return health;
     }
+
+    public void takeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            // End the fight
+        }
+    }
 }

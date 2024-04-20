@@ -12,6 +12,8 @@ public class MonsterAI : MonoBehaviour
     [SerializeField]
     private Transform targetTransform;
 
+    private MonsterMove moveScript;
+    private MonsterAttack attackScript;
 
 
     // Start is called before the first frame update
@@ -21,6 +23,8 @@ public class MonsterAI : MonoBehaviour
 
         // Get the initial monster information 
         thisMonster = this.GetComponent<Monster>();
+        moveScript = this.GetComponent<MonsterMove>();
+        attackScript = this.GetComponent<MonsterAttack>();
 
         // Look for the other object in the scene with a monster script 
         var monsters = Resources.FindObjectsOfTypeAll<Monster>();
@@ -45,7 +49,15 @@ public class MonsterAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // Moves the monster towards the enemy monster by its speed
+        moveScript.Move(targetTransform, thisMonster.getSpeed());
+        // Checks if the monster is in range and off attack cooldown
+        // Then, gives the enemy monster knockback and makes it lose health
+        if (attackScript.CanAttack(targetTransform))
+        {
+            targetMonster.GetComponent<MonsterMove>().Knockback(thisMonster.getDamage());
+            targetMonster.takeDamage(thisMonster.getDamage());
+        }
     }
 
     /**
