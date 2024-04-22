@@ -365,14 +365,19 @@ MonoBehaviour:
   spawnCooldown: 0.5
   spawnContinuously: 0
   spawnWithAI: 1
+  totalMonstersToSpawn: 2
   allCores:
   - {fileID: 8417863888733090835, guid: fbe678cf7877b9e458312b842bf22692, type: 3}
+  - {fileID: 3799558491816368408, guid: 2d46a6eeda86838459efb0a2c4d85e1d, type: 3}
   allHeads:
   - {fileID: 1533993276523517077, guid: f9ea0370eb34ef94ab28bf01684944be, type: 3}
+  - {fileID: 8172511204056879978, guid: 67a4f24c3d5892141981c2a62f3a19ba, type: 3}
   allArms:
   - {fileID: 1357565779372923921, guid: 87c87b9a17b3c674794ec5c36c0f695c, type: 3}
+  - {fileID: 8441114221124032300, guid: ad1f801fc9b2a6e4a9e8e8da83f641b1, type: 3}
   allLegs:
   - {fileID: 7644228364159467918, guid: ce69494ff15570e4da10965611cbbeb9, type: 3}
+  - {fileID: 859719032221544634, guid: 69434e247e9d9c54bbad1b1fe1006aa3, type: 3}
 --- !u!1 &1046435363
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,6 +20,13 @@ public class MonsterSpawner : MonoBehaviour
     // Spawn the monster without any AI, used for the lab scene so a monster can exist without movement
     public Boolean spawnWithAI;
 
+    // For use with giving the monster objects more distinct names
+    private int currentSpawnNumber;
+
+    // Meant to be the total number of monsters to spawn
+    [SerializeField]
+    private int totalMonstersToSpawn;
+
     // added in the inspector for which parts can come from this spawner
     public Part[] allCores;
     public Part[] allHeads;
@@ -30,8 +37,19 @@ public class MonsterSpawner : MonoBehaviour
 
     private void Start()
     {
-        SpawnRandomMonster(new Vector2(-3, 2));
-        SpawnRandomMonster(new Vector2(3, 1));
+        currentSpawnNumber = 1;
+
+        Vector2 currentSpawnVec = new Vector2(3, 0);
+        
+        for(int i = 0; i < totalMonstersToSpawn; i++)
+        {
+            // Spawn up to the amount of monsters specified
+            SpawnRandomMonster(currentSpawnVec);
+
+            // Iterate the spawn vector to make sure the monsters don't overlap
+            currentSpawnVec.x = currentSpawnVec.x - 6;
+        }
+        
     }
 
     // Update is called once per frame
@@ -52,8 +70,10 @@ public class MonsterSpawner : MonoBehaviour
 
     public void SpawnRandomMonster(Vector2 where)
     {
+
         // make the empty monster game object
-        GameObject monster = new GameObject("Monster");
+        string monsterName = "Monster" + currentSpawnNumber.ToString();
+        GameObject monster = new GameObject(monsterName);
         monster.transform.position = where;
         monster.AddComponent<Monster>();
 
@@ -100,6 +120,9 @@ public class MonsterSpawner : MonoBehaviour
             monster.AddComponent<MonsterMove>();
             monster.AddComponent<MonsterAttack>();
         }
+
+        // Iterate the spawn count so the next created monster has a different name.
+        currentSpawnNumber += 1;
     }
 
     public void SpawnLabMonster() {
