@@ -21,6 +21,19 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SpawnCreature();
         DontDestroyOnLoad(gameObject);
     }
+
+    public void SpawnCreature()
+    {
+        Debug.Log(123);
+        MonsterSpawner monsterSpawner = new MonsterSpawner();
+        monsterSpawner.SetArm(arm.GetComponent<Part>());
+        monsterSpawner.SetLeg(leg.GetComponent<Part>());
+        monsterSpawner.SetHead(head.GetComponent<Part>());
+        monsterSpawner.SetCore(torso.GetComponent<Part>());
+        monsterSpawner.SpawnLabMonster();
+    }
+
 }
