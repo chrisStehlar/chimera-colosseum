@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class HpBar : MonoBehaviour
 {
     public float maxHp;
@@ -53,7 +53,7 @@ public class HpBar : MonoBehaviour
     private void Update()
     {
         // TakeDamage was only being called here for testing, removing that
-        // TakeDamage(Random.RandomRange(0,10)*Time.deltaTime);
+        //TakeDamage(Random.RandomRange(0,10)*Time.deltaTime);
 
         // Check to make sure the below ONLY runs if the monster exists 
         if (trackedMonster != null)

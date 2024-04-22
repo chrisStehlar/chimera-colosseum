@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Monster : MonoBehaviour
 {
@@ -34,9 +35,20 @@ public class Monster : MonoBehaviour
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 moveDir = worldPosition - this.transform.position ;
         //this.transform.Translate(moveDir.normalized * speed * Time.deltaTime);
+        CheckHp();
     }
 
     // METHODS
+
+    public void CheckHp() {
+
+        //if any monster run out of hp, set the scene to end scene
+        if (health <= 0)
+        {
+            SceneManager.LoadScene("EndScene");
+        }
+
+    }
 
     public void SetStats()
     {
