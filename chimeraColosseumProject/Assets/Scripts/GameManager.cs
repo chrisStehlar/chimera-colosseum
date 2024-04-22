@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     {
         SpawnCreature();
         DontDestroyOnLoad(gameObject);
+
+        // This is where the monster's parts get put to whenever the scene is loaded
     }
 
     public void SpawnCreature()

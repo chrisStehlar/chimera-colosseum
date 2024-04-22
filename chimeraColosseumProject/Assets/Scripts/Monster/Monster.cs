@@ -33,7 +33,7 @@ public class Monster : MonoBehaviour
     {
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 moveDir = worldPosition - this.transform.position ;
-        this.transform.Translate(moveDir.normalized * speed * Time.deltaTime);
+        //this.transform.Translate(moveDir.normalized * speed * Time.deltaTime);
     }
 
     // METHODS
@@ -65,6 +65,31 @@ public class Monster : MonoBehaviour
         foreach ( Part part in parts )
         {
             damage += part.damage;
+        }
+    }
+
+
+    public float getDamage()
+    {
+        return damage;
+    }
+
+    public float getSpeed()
+    {
+        return speed;
+    }
+
+    public float getHP()
+    {
+        return health;
+    }
+
+    public void takeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            // End the fight
         }
     }
 }
