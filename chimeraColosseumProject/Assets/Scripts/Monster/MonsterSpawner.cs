@@ -168,6 +168,15 @@ public class MonsterSpawner : MonoBehaviour
             Instantiate(arm.GetComponent<PartHandler>().part, coreObj.transform.position + core.armJoints[i], Quaternion.identity, coreObj.transform);
         }
 
+        // Check if the monster to be spawned should have AI, and if so, add that component.
+        if (spawnWithAI)
+        {
+            // Spawn the monster with their AI component if allowed
+            monster.AddComponent<MonsterAI>();
+            monster.AddComponent<MonsterMove>();
+            monster.AddComponent<MonsterAttack>();
+        }
+
         monster.transform.localScale = new Vector3(10, 10, 1);
     }
 

@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
         monsterSpawner.SetLeg(leg.GetComponent<Part>());
         monsterSpawner.SetHead(head.GetComponent<Part>());
         monsterSpawner.SetCore(torso.GetComponent<Part>());
-        monsterSpawner.SpawnLabMonster();
+        monsterSpawner.SpawnRandomMonster(new Vector2(-3, 0));
     }
 
 }
