@@ -22,7 +22,16 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(gameObject);
-
-        // This is where the monster's parts get put to whenever the scene is loaded
     }
+
+    public void SpawnCreature()
+    {
+        MonsterSpawner monsterSpawner = new MonsterSpawner();
+        monsterSpawner.SetArm(arm.GetComponent<Part>());
+        monsterSpawner.SetLeg(leg.GetComponent<Part>());
+        monsterSpawner.SetHead(head.GetComponent<Part>());
+        monsterSpawner.SetCore(torso.GetComponent<Part>());
+        monsterSpawner.SpawnLabMonster();
+    }
+
 }
