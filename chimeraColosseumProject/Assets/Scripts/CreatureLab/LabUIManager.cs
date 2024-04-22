@@ -31,6 +31,7 @@ public class LabUIManager : MonoBehaviour
         GameManager.instance.arm = Instantiate(MonsterSpawner.allArms[0].gameObject);
         GameManager.instance.head = Instantiate(MonsterSpawner.allHeads[0].gameObject);
         GameManager.instance.torso = Instantiate(MonsterSpawner.allCores[0].gameObject);
+        // Suggests this is already existing code to allow for the monster to be spawned in the battle scene.  
         DontDestroyOnLoad(GameManager.instance.leg);
         DontDestroyOnLoad(GameManager.instance.arm);
         DontDestroyOnLoad(GameManager.instance.head);

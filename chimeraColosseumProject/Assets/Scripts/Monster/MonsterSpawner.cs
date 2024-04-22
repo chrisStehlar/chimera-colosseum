@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -13,6 +14,19 @@ public class MonsterSpawner : MonoBehaviour
     public float spawnCooldown;
     private float lastSpawnTime;
 
+    // Spawn the monsters in the scene whenever the spawn cooldown is done
+    public Boolean spawnContinuously;
+
+    // Spawn the monster without any AI, used for the lab scene so a monster can exist without movement
+    public Boolean spawnWithAI;
+
+    // For use with giving the monster objects more distinct names
+    private int currentSpawnNumber;
+
+    // Meant to be the total number of monsters to spawn
+    [SerializeField]
+    private int totalMonstersToSpawn;
+
     // added in the inspector for which parts can come from this spawner
     public Part[] allCores;
     public Part[] allHeads;
@@ -21,6 +35,23 @@ public class MonsterSpawner : MonoBehaviour
 
     // MONO
 
+    private void Start()
+    {
+        currentSpawnNumber = 1;
+
+        Vector2 currentSpawnVec = new Vector2(3, 0);
+        
+        for(int i = 0; i < totalMonstersToSpawn; i++)
+        {
+            // Spawn up to the amount of monsters specified
+            SpawnRandomMonster(currentSpawnVec);
+
+            // Iterate the spawn vector to make sure the monsters don't overlap
+            currentSpawnVec.x = currentSpawnVec.x - 6;
+        }
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -28,7 +59,7 @@ public class MonsterSpawner : MonoBehaviour
         this.transform.Translate(Vector2.right * .25f * Time.deltaTime);
 
         // every "spawnCooldown" interval triggers this
-        if(Time.time > lastSpawnTime + spawnCooldown)
+        if(Time.time > lastSpawnTime + spawnCooldown && spawnContinuously)
         {
             lastSpawnTime = Time.time;
             SpawnRandomMonster(this.transform.position);
@@ -39,13 +70,17 @@ public class MonsterSpawner : MonoBehaviour
 
     public void SpawnRandomMonster(Vector2 where)
     {
+
         // make the empty monster game object
-        GameObject monster = new GameObject("Monster");
+        string monsterName = "Monster" + currentSpawnNumber.ToString();
+        GameObject monster = new GameObject(monsterName);
         monster.transform.position = where;
         monster.AddComponent<Monster>();
 
+        // MonsterAI needs to ONLY be added in the battle scene, and thus gets checked later
+
         // instantiate the core
-        Core randomCore = (Core)allCores[Random.Range(0, allCores.Length)];
+        Core randomCore = (Core)allCores[UnityEngine.Random.Range(0, allCores.Length)];
         GameObject coreObj = Instantiate(randomCore.gameObject, monster.transform);
 
         // instantiate body parts and put them in the right spot
@@ -54,7 +89,7 @@ public class MonsterSpawner : MonoBehaviour
         for(int i = 0; i < randomCore.headJoints.Length; i++)
         {
             // make a head
-            Part head = allHeads[Random.Range(0, allHeads.Length)];
+            Part head = allHeads[UnityEngine.Random.Range(0, allHeads.Length)];
             // position it
             Instantiate(head.gameObject, coreObj.transform.position + randomCore.headJoints[i], Quaternion.identity, coreObj.transform);
         }
@@ -63,7 +98,7 @@ public class MonsterSpawner : MonoBehaviour
         for(int i = 0; i < randomCore.legJoints.Length; i++)
         {
             // make a leg
-            Part leg = allLegs[Random.Range(0, allLegs.Length)];
+            Part leg = allLegs[UnityEngine.Random.Range(0, allLegs.Length)];
             // position it
             Instantiate(leg.gameObject, coreObj.transform.position + randomCore.legJoints[i], Quaternion.identity, coreObj.transform);
         }
@@ -72,10 +107,22 @@ public class MonsterSpawner : MonoBehaviour
         for(int i = 0; i < randomCore.armJoints.Length; i++)
         {
             // make an arm
-            Part arm = allArms[Random.Range(0, allArms.Length)];
+            Part arm = allArms[UnityEngine.Random.Range(0, allArms.Length)];
             // position it
             Instantiate(arm.gameObject, coreObj.transform.position + randomCore.armJoints[i], Quaternion.identity, coreObj.transform);
         }
+
+        // Check if the monster to be spawned should have AI, and if so, add that component.
+        if (spawnWithAI)
+        {
+            // Spawn the monster with their AI component if allowed
+            monster.AddComponent<MonsterAI>();
+            monster.AddComponent<MonsterMove>();
+            monster.AddComponent<MonsterAttack>();
+        }
+
+        // Iterate the spawn count so the next created monster has a different name.
+        currentSpawnNumber += 1;
     }
 
     public void SpawnLabMonster() {
@@ -89,7 +136,7 @@ public class MonsterSpawner : MonoBehaviour
         monster.AddComponent<Monster>();
 
         // instantiate the core
-        Core randomCore = (Core)allCores[Random.Range(0, allCores.Length)];
+        Core randomCore = (Core)allCores[UnityEngine.Random.Range(0, allCores.Length)];
         GameObject coreObj = Instantiate(randomCore.GetComponent<PartHandler>().part, monster.transform);
 
         // instantiate body parts and put them in the right spot
@@ -98,7 +145,7 @@ public class MonsterSpawner : MonoBehaviour
         for (int i = 0; i < core.headJoints.Length; i++)
         {
             // make a head
-            Part head = allHeads[Random.Range(0, allHeads.Length)];
+            Part head = allHeads[UnityEngine.Random.Range(0, allHeads.Length)];
             // position it
             Instantiate(head.GetComponent<PartHandler>().part, coreObj.transform.position + core.headJoints[i], Quaternion.identity, coreObj.transform);
         }
@@ -107,7 +154,7 @@ public class MonsterSpawner : MonoBehaviour
         for (int i = 0; i < core.legJoints.Length; i++)
         {
             // make a leg
-            Part leg = allLegs[Random.Range(0, allLegs.Length)];
+            Part leg = allLegs[UnityEngine.Random.Range(0, allLegs.Length)];
             // position it
             Instantiate(leg.GetComponent<PartHandler>().part, coreObj.transform.position + core.legJoints[i], Quaternion.identity, coreObj.transform);
         }
@@ -116,7 +163,7 @@ public class MonsterSpawner : MonoBehaviour
         for (int i = 0; i < core.armJoints.Length; i++)
         {
             // make an arm
-            Part arm = allArms[Random.Range(0, allArms.Length)];
+            Part arm = allArms[UnityEngine.Random.Range(0, allArms.Length)];
             // position it
             Instantiate(arm.GetComponent<PartHandler>().part, coreObj.transform.position + core.armJoints[i], Quaternion.identity, coreObj.transform);
         }
