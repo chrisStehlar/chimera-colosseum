@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class PartHandler : MonoBehaviour
 {
-    public Part part;
+    public GameObject part;
 }

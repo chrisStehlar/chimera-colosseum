@@ -8,6 +8,7 @@ TagManager:
   - Leg
   - Torso
   - Head
+  - Monster
   layers:
   - Default
   - TransparentFX
