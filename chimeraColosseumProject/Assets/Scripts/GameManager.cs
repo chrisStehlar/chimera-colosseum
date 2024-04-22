@@ -21,15 +21,11 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnCreature();
         DontDestroyOnLoad(gameObject);
-
-        // This is where the monster's parts get put to whenever the scene is loaded
     }
 
     public void SpawnCreature()
     {
-        Debug.Log(123);
         MonsterSpawner monsterSpawner = new MonsterSpawner();
         monsterSpawner.SetArm(arm.GetComponent<Part>());
         monsterSpawner.SetLeg(leg.GetComponent<Part>());

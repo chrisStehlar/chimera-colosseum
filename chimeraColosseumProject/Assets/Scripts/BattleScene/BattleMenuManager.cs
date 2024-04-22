@@ -10,5 +10,8 @@ public class BattleMenuManager : MonoBehaviour
     public Monster leftMonster;
     public Monster rightMonster;
 
-    
+    private void Start()
+    {
+        FindObjectOfType<GameManager>().SpawnCreature();
+    }
 }
