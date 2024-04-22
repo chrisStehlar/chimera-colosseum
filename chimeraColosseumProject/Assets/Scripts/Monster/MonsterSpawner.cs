@@ -105,7 +105,7 @@ public class MonsterSpawner : MonoBehaviour
         monster.AddComponent<Monster>();
 
         // instantiate the core
-        Core randomCore = (Core)allCores[Random.Range(0, allCores.Length)];
+        Core randomCore = (Core)allCores[UnityEngine.Random.Range(0, allCores.Length)];
         GameObject coreObj = Instantiate(randomCore.GetComponent<PartHandler>().part, monster.transform);
 
         // instantiate body parts and put them in the right spot
@@ -114,7 +114,7 @@ public class MonsterSpawner : MonoBehaviour
         for (int i = 0; i < core.headJoints.Length; i++)
         {
             // make a head
-            Part head = allHeads[Random.Range(0, allHeads.Length)];
+            Part head = allHeads[UnityEngine.Random.Range(0, allHeads.Length)];
             // position it
             Instantiate(head.GetComponent<PartHandler>().part, coreObj.transform.position + core.headJoints[i], Quaternion.identity, coreObj.transform);
         }
@@ -123,7 +123,7 @@ public class MonsterSpawner : MonoBehaviour
         for (int i = 0; i < core.legJoints.Length; i++)
         {
             // make a leg
-            Part leg = allLegs[Random.Range(0, allLegs.Length)];
+            Part leg = allLegs[UnityEngine.Random.Range(0, allLegs.Length)];
             // position it
             Instantiate(leg.GetComponent<PartHandler>().part, coreObj.transform.position + core.legJoints[i], Quaternion.identity, coreObj.transform);
         }
@@ -132,7 +132,7 @@ public class MonsterSpawner : MonoBehaviour
         for (int i = 0; i < core.armJoints.Length; i++)
         {
             // make an arm
-            Part arm = allArms[Random.Range(0, allArms.Length)];
+            Part arm = allArms[UnityEngine.Random.Range(0, allArms.Length)];
             // position it
             Instantiate(arm.GetComponent<PartHandler>().part, coreObj.transform.position + core.armJoints[i], Quaternion.identity, coreObj.transform);
         }
