@@ -49,14 +49,18 @@ public class MonsterAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Moves the monster towards the enemy monster by its speed
-        moveScript.Move(targetTransform, thisMonster.getSpeed());
-        // Checks if the monster is in range and off attack cooldown
-        // Then, gives the enemy monster knockback and makes it lose health
-        if (attackScript.CanAttack(targetTransform))
+        // ONLY do movement and attack behavior if there is a target in the scene 
+        if (targetMonster != null)
         {
-            targetMonster.GetComponent<MonsterMove>().Knockback(thisMonster.getDamage());
-            targetMonster.takeDamage(thisMonster.getDamage());
+            // Moves the monster towards the enemy monster by its speed
+            moveScript.Move(targetTransform, thisMonster.getSpeed());
+            // Checks if the monster is in range and off attack cooldown
+            // Then, gives the enemy monster knockback and makes it lose health
+            if (attackScript.CanAttack(targetTransform))
+            {
+                targetMonster.GetComponent<MonsterMove>().Knockback(thisMonster.getDamage());
+                targetMonster.takeDamage(thisMonster.getDamage());
+            }
         }
     }
 

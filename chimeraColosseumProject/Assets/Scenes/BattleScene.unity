@@ -364,6 +364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnCooldown: 0.5
   spawnContinuously: 0
+  spawnWithAI: 1
   allCores:
   - {fileID: 8417863888733090835, guid: fbe678cf7877b9e458312b842bf22692, type: 3}
   allHeads:

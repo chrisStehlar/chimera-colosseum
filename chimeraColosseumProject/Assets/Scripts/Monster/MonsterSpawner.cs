@@ -17,6 +17,9 @@ public class MonsterSpawner : MonoBehaviour
     // Spawn the monsters in the scene whenever the spawn cooldown is done
     public Boolean spawnContinuously;
 
+    // Spawn the monster without any AI, used for the lab scene so a monster can exist without movement
+    public Boolean spawnWithAI;
+
     // added in the inspector for which parts can come from this spawner
     public Part[] allCores;
     public Part[] allHeads;
@@ -53,9 +56,8 @@ public class MonsterSpawner : MonoBehaviour
         GameObject monster = new GameObject("Monster");
         monster.transform.position = where;
         monster.AddComponent<Monster>();
-        monster.AddComponent<MonsterAI>();
-        monster.AddComponent<MonsterMove>();
-        monster.AddComponent<MonsterAttack>();
+
+        // MonsterAI needs to ONLY be added in the battle scene, and thus gets checked later
 
         // instantiate the core
         Core randomCore = (Core)allCores[UnityEngine.Random.Range(0, allCores.Length)];
@@ -90,8 +92,14 @@ public class MonsterSpawner : MonoBehaviour
             Instantiate(arm.gameObject, coreObj.transform.position + randomCore.armJoints[i], Quaternion.identity, coreObj.transform);
         }
 
-        // Adding this for testing for monster AI
-        monster.AddComponent<MonsterAI>();
+        // Check if the monster to be spawned should have AI, and if so, add that component.
+        if (spawnWithAI)
+        {
+            // Spawn the monster with their AI component if allowed
+            monster.AddComponent<MonsterAI>();
+            monster.AddComponent<MonsterMove>();
+            monster.AddComponent<MonsterAttack>();
+        }
     }
 
     public void SpawnLabMonster() {
