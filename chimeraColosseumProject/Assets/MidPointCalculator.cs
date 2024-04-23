@@ -8,6 +8,8 @@ public class MidPointCalculator : MonoBehaviour
     void Update()
     {
         Monster[] monsters = Resources.FindObjectsOfTypeAll<Monster>();
+        monsters[0].transform.localScale = new Vector3(5,5,1);
+        monsters[1].transform.localScale = new Vector3(5, 5, 1);
         transform.position = (monsters[0].transform.position + monsters[1].transform.position)/2;
     }
 }
