@@ -63,6 +63,9 @@ public class MonsterSpawner : MonoBehaviour
         {
             lastSpawnTime = Time.time;
             SpawnRandomMonster(this.transform.position);
+
+            // Iterate the spawn count so the next created monster has a different name.
+            currentSpawnNumber += 1;
         }
     }
 
@@ -121,8 +124,6 @@ public class MonsterSpawner : MonoBehaviour
             monster.AddComponent<MonsterAttack>();
         }
 
-        // Iterate the spawn count so the next created monster has a different name.
-        currentSpawnNumber += 1;
     }
 
     public void SpawnLabMonster() {
@@ -166,6 +167,15 @@ public class MonsterSpawner : MonoBehaviour
             Part arm = allArms[UnityEngine.Random.Range(0, allArms.Length)];
             // position it
             Instantiate(arm.GetComponent<PartHandler>().part, coreObj.transform.position + core.armJoints[i], Quaternion.identity, coreObj.transform);
+        }
+
+        // Check if the monster to be spawned should have AI, and if so, add that component.
+        if (spawnWithAI)
+        {
+            // Spawn the monster with their AI component if allowed
+            monster.AddComponent<MonsterAI>();
+            monster.AddComponent<MonsterMove>();
+            monster.AddComponent<MonsterAttack>();
         }
 
         monster.transform.localScale = new Vector3(10, 10, 1);

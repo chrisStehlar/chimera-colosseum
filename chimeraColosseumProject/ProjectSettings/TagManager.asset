@@ -9,6 +9,7 @@ TagManager:
   - Torso
   - Head
   - Monster
+  - GameManager
   layers:
   - Default
   - TransparentFX
