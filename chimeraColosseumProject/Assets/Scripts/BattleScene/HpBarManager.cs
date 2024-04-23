@@ -12,7 +12,7 @@ public class HpBarManager : MonoBehaviour
 
     // Array to hold monsters that have been given to the HP bars.
     // Intent is to only have there be two of them in a scene, for simplicity
-    Monster[] monsters;
+    public Monster[] monsters;
 
 
     /// <summary>
