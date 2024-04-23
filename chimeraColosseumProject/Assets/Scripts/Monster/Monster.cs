@@ -14,7 +14,7 @@ public class Monster : MonoBehaviour
     private float speed = 0;
     [SerializeField]
     private float damage = 0;
-    public float health = 100f;
+    public float health = 25f;
 
     public GameObject Head;
     public GameObject leftHand;
