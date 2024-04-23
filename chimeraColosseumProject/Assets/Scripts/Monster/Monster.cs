@@ -9,7 +9,10 @@ public class Monster : MonoBehaviour
 
     private Core corePart;
 
+    // Need these to be visible for testing for now
+    [SerializeField]
     private float speed = 0;
+    [SerializeField]
     private float damage = 0;
     public float health = 100f;
 
@@ -25,6 +28,8 @@ public class Monster : MonoBehaviour
     void Start()
     {
         corePart = GetComponentInChildren<Core>();
+        if(speed > 0 || damage > 0)
+            resetStats();
         if(corePart.transform.childCount > 0)
             SetStats();
     }
@@ -40,6 +45,7 @@ public class Monster : MonoBehaviour
 
     // METHODS
 
+
     public void CheckHp() {
 
         //if any monster run out of hp, set the scene to end scene
@@ -47,6 +53,13 @@ public class Monster : MonoBehaviour
         {
             SceneManager.LoadScene("EndScene");
         }
+
+    }
+    public void resetStats()
+    {
+        // Needed to fix a bug related to the monster going from the lab scene to the battle scene 
+        speed = 0;
+        damage = 0;
 
     }
 

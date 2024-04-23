@@ -50,13 +50,14 @@ public class MonsterAI : MonoBehaviour
     void Update()
     {
         // ONLY do movement and attack behavior if there is a target in the scene 
-        if (targetMonster != null)
+        // And if health is a non zero value
+        if (targetMonster != null && thisMonster.getHP() > 0)
         {
             // Moves the monster towards the enemy monster by its speed
             moveScript.Move(targetTransform, thisMonster.getSpeed());
             // Checks if the monster is in range and off attack cooldown
             // Then, gives the enemy monster knockback and makes it lose health
-            if (attackScript.CanAttack(targetTransform))
+            if (attackScript.CanAttack(targetTransform) && targetMonster.GetComponent<MonsterMove>() != null)
             {
                 targetMonster.GetComponent<MonsterMove>().Knockback(thisMonster.getDamage());
                 targetMonster.takeDamage(thisMonster.getDamage());
