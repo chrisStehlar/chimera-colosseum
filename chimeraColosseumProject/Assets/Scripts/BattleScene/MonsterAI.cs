@@ -46,6 +46,14 @@ public class MonsterAI : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (targetMonster != null && thisMonster.getHP() > 0)
+        {
+            moveScript.Move(targetTransform, thisMonster.getSpeed());
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -54,7 +62,7 @@ public class MonsterAI : MonoBehaviour
         if (targetMonster != null && thisMonster.getHP() > 0)
         {
             // Moves the monster towards the enemy monster by its speed
-            moveScript.Move(targetTransform, thisMonster.getSpeed());
+            // moveScript.Move(targetTransform, thisMonster.getSpeed());
             // Checks if the monster is in range and off attack cooldown
             // Then, gives the enemy monster knockback and makes it lose health
             if (attackScript.CanAttack(targetTransform) && targetMonster.GetComponent<MonsterMove>() != null)

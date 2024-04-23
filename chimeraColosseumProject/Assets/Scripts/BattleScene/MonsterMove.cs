@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class MonsterMove : MonoBehaviour
 {
-    float knockbackScaler = 20f;
+    float knockbackScaler = 10f;
 
     Vector2 direction;
     Vector2 knockbackVelocity;
-    float friction = 0.975f;
+    float friction = 0.875f;
 
     // Start is called before the first frame update
     void Start()
